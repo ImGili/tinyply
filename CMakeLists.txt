@@ -22,17 +22,6 @@ else()
     add_library(tinyply STATIC source/tinyply.cpp source/tinyply.h)
 endif()
 
-set(BUILD_TESTS false CACHE BOOL "Build tests")
-
-# Example Application
-add_executable(example source/example.cpp)
-target_link_libraries(example PRIVATE tinyply)
-
-# Test Application
-if(${BUILD_TESTS})
-  add_executable(tests source/tests.cpp)
-  target_link_libraries(tests PRIVATE tinyply)
-endif()
 
 # pkg-config support
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
